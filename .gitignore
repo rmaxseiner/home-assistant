@@ -5,3 +5,5 @@
 !*.yaml
 !.gitignore
 !*.md
+
+secrets.yaml
