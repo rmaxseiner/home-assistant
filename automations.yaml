@@ -1,0 +1,398 @@
+- id: '1607006616676'
+  alias: Computer Room Floor Light - Turn On
+  description: ''
+  trigger:
+  - platform: state
+    to: 'on'
+    entity_id: binary_sensor.computer_room_motion_sensor_sensor
+  condition: []
+  action:
+  - type: turn_on
+    device_id: bf8cca813cd74bb5c19a04899846f9d0
+    entity_id: switch.computer_room_wall_outlet_switch_switch
+    domain: switch
+  mode: single
+- id: '1607006672200'
+  alias: Computer Room Floor Light - Turn Off
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.computer_room_motion_sensor_sensor
+    to: 'off'
+    for: 00:15:00
+  condition: []
+  action:
+  - type: turn_off
+    device_id: bf8cca813cd74bb5c19a04899846f9d0
+    entity_id: switch.computer_room_wall_outlet_switch_switch
+    domain: switch
+  mode: single
+- id: '1607019532585'
+  alias: Garage - Turn on Lights
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.garage_motion_sensor_sensor
+    to: 'on'
+  condition: []
+  action:
+  - type: turn_off
+    device_id: d9facecfe2403a5f1a9f5d09db98f6f6
+    entity_id: switch.garage_overhead_outlet_switch_left_bay_switch
+    domain: switch
+  - type: turn_on
+    device_id: 4a96d40296c1dad690702f1789371760
+    entity_id: switch.garage_overhead_outlet_switch_right_bay_switch_2
+    domain: switch
+  - type: turn_on
+    device_id: 4a09d39de9cb864e708557b7dab9cddd
+    entity_id: switch.12721_lighting_control_duplex_receptacle_switch_3
+    domain: switch
+  mode: single
+- id: '1607019594378'
+  alias: Garage - Turn Lights Off
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.garage_motion_sensor_sensor
+    to: 'off'
+  condition: []
+  action:
+  - type: turn_off
+    device_id: d9facecfe2403a5f1a9f5d09db98f6f6
+    entity_id: switch.garage_overhead_outlet_switch_left_bay_switch
+    domain: switch
+  - type: turn_off
+    device_id: 4a96d40296c1dad690702f1789371760
+    entity_id: switch.garage_overhead_outlet_switch_right_bay_switch_2
+    domain: switch
+  - type: turn_off
+    device_id: 4a09d39de9cb864e708557b7dab9cddd
+    entity_id: switch.12721_lighting_control_duplex_receptacle_switch_3
+    domain: switch
+  mode: single
+- id: '1607043906888'
+  alias: Garage Lights - On when opening door
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: cover.garage_door
+    to: Open
+  condition: []
+  action:
+  - type: turn_on
+    device_id: 05a0f75db98aae97c5110fce083fdbf0
+    entity_id: switch.jasco_products_12721_lighting_control_duplex_receptacle_switch_2
+    domain: switch
+  - type: turn_on
+    device_id: 88dfdac696b5c50cdf90851540d0eed1
+    entity_id: switch.jasco_products_12721_lighting_control_duplex_receptacle_switch_3
+    domain: switch
+  - type: turn_on
+    device_id: 9aaa0eb6261f5e72f1a322cdad2211ec
+    entity_id: switch.jasco_products_12721_lighting_control_duplex_receptacle_switch_4
+    domain: switch
+  mode: single
+- id: '1607287524264'
+  alias: Downstairs Hallway - Turn on Light
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.downstairs_hallway_motion_sensor_home_security_motion_detected
+    to: 'on'
+  condition: []
+  action:
+  - type: turn_on
+    device_id: dc47cd403017436de97bd397a8596f96
+    entity_id: light.downstairs_hallway_wall_switch_level
+    domain: light
+    brightness_pct: 20
+  mode: single
+- id: '1607287809047'
+  alias: Downstairs Hallway Turn Light Off
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.downstairs_hallway_motion_sensor_home_security_motion_detected
+    to: 'off'
+    for: 00:15:00
+  condition: []
+  action:
+  - type: turn_off
+    device_id: dc47cd403017436de97bd397a8596f96
+    entity_id: light.downstairs_hallway_wall_switch_level
+    domain: light
+  - type: turn_off
+    device_id: dc47cd403017436de97bd397a8596f96
+    entity_id: switch.downstairs_hallway_wall_switch_switch
+    domain: switch
+  mode: single
+- id: '1607348945596'
+  alias: Run GoodNight at 11PM
+  description: ''
+  trigger:
+  - platform: time
+    at: '23:00'
+  condition: []
+  action: []
+  mode: single
+- id: '1607399630454'
+  alias: Living Room Turn Lights On Day
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.zw100_multisensor_6_home_security_motion_detected
+    to: 'on'
+  condition:
+  - condition: time
+    after: '6:00:00'
+    before: '23:00:00'
+  action:
+  - type: turn_on
+    device_id: a91b2093831bd995c98a68003a0924f2
+    entity_id: switch.living_room_outlet_switch_garage_wall_switch
+    domain: switch
+  - type: turn_on
+    device_id: 7241d999a0ea5e336339943061bb5d62
+    entity_id: switch.living_room_outlet_switch_stairs_wall_switch_2
+    domain: switch
+  mode: single
+- id: '1607399908076'
+  alias: Living Room Turn Lights On Night
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.zw100_multisensor_6_home_security_motion_detected
+    to: 'on'
+  condition:
+  - condition: time
+    before: '6:00:00'
+    after: '23:00:00'
+  action:
+  - type: turn_on
+    device_id: a91b2093831bd995c98a68003a0924f2
+    entity_id: switch.living_room_outlet_switch_garage_wall_switch
+    domain: switch
+  mode: single
+- id: '1607399958441'
+  alias: 'Living Room Turn Lights Off Night '
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.zw100_multisensor_6_home_security_motion_detected
+    to: 'off'
+    for: 00:10:00
+  condition:
+  - condition: time
+    before: '6:00:00'
+    after: '23:00:00'
+  action:
+  - type: turn_off
+    device_id: a91b2093831bd995c98a68003a0924f2
+    entity_id: switch.living_room_outlet_switch_garage_wall_switch
+    domain: switch
+  mode: single
+- id: '1607400127978'
+  alias: 'Living Room Turn Lights Off Day '
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.zw100_multisensor_6_home_security_motion_detected
+    to: 'off'
+    for: 00:30:00
+  condition:
+  - condition: time
+    after: '6:00:00'
+    before: '23:00:00'
+  action:
+  - type: turn_off
+    device_id: a91b2093831bd995c98a68003a0924f2
+    entity_id: switch.living_room_outlet_switch_garage_wall_switch
+    domain: switch
+  - type: turn_off
+    device_id: 7241d999a0ea5e336339943061bb5d62
+    entity_id: switch.living_room_outlet_switch_stairs_wall_switch_2
+    domain: switch
+  mode: single
+- id: '1607638827605'
+  alias: Christmas Lights on
+  description: ''
+  trigger:
+  - platform: sun
+    event: sunset
+  condition: []
+  action:
+  - type: turn_on
+    device_id: 1fae5e92997631fa8e43a21be8a4edf8
+    entity_id: switch.wemo_switch_1
+    domain: switch
+  - type: turn_on
+    device_id: 4dead65416aa0d689979ea4369f4c820
+    entity_id: switch.wemo_switch_2
+    domain: switch
+  - type: turn_on
+    device_id: d063b0c58a68d73f43630dfa55ca5df1
+    entity_id: light.centralite_4257050_rzhac_9af64005_on_off
+    domain: light
+  mode: single
+- id: '1607638875509'
+  alias: Christmas Lights off
+  description: ''
+  trigger:
+  - platform: time
+    at: '23:00:00'
+  condition: []
+  action:
+  - type: turn_off
+    device_id: 1fae5e92997631fa8e43a21be8a4edf8
+    entity_id: switch.wemo_switch_1
+    domain: switch
+  - type: turn_off
+    device_id: 4dead65416aa0d689979ea4369f4c820
+    entity_id: switch.wemo_switch_2
+    domain: switch
+  - type: turn_off
+    device_id: d063b0c58a68d73f43630dfa55ca5df1
+    entity_id: light.centralite_4257050_rzhac_9af64005_on_off
+    domain: light
+  mode: single
+- id: '1608314059098'
+  alias: Kitchen Lights On - Day
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.kitchen_motion_sensor_sensor
+    to: 'on'
+  condition:
+  - condition: time
+    after: '6:00:00'
+    before: '23:00:00'
+  action:
+  - type: turn_on
+    device_id: 43cb46f5a856b4fc339ccaa383cfbd06
+    entity_id: light.kitchen_switch_over_sink_level_4
+    domain: light
+    brightness_pct: 70
+  - type: turn_on
+    device_id: 96a5e40f86466aa91376267e4a44005a
+    entity_id: light.kitchen_switch_over_table_level
+    domain: light
+    brightness_pct: 70
+  - type: turn_on
+    device_id: 6a3b33086545cd316eb3af4e8e64dc26
+    entity_id: light.kitchen_switch_overhead_lights_level_2
+    domain: light
+    brightness_pct: 70
+  - type: turn_on
+    device_id: 6e86e293129a40fc50d1310bee8da1c5
+    entity_id: light.kitchen_switch_under_cabinet_living_room_wall_level_3
+    domain: light
+    brightness_pct: 70
+  - type: turn_on
+    device_id: 5dd57bb3b1201b07b5226d8d3884a04c
+    entity_id: light.kitchen_switch_under_cabinet_outside_wall_level_5
+    domain: light
+    brightness_pct: 70
+  mode: single
+- id: '1608314165844'
+  alias: Kitchen Lights Off - Day
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.kitchen_motion_sensor_sensor
+    to: 'off'
+    for: '20:00'
+  condition:
+  - condition: time
+    after: '7:00:00'
+    before: '23:00:00'
+  action:
+  - type: turn_off
+    device_id: 43cb46f5a856b4fc339ccaa383cfbd06
+    entity_id: light.kitchen_switch_over_sink_level_4
+    domain: light
+  - type: turn_off
+    device_id: 96a5e40f86466aa91376267e4a44005a
+    entity_id: light.kitchen_switch_over_table_level
+    domain: light
+  - type: turn_off
+    device_id: 6a3b33086545cd316eb3af4e8e64dc26
+    entity_id: light.kitchen_switch_overhead_lights_level_2
+    domain: light
+  - type: turn_off
+    device_id: 6e86e293129a40fc50d1310bee8da1c5
+    entity_id: light.kitchen_switch_under_cabinet_living_room_wall_level_3
+    domain: light
+  - type: turn_off
+    device_id: 5dd57bb3b1201b07b5226d8d3884a04c
+    entity_id: light.kitchen_switch_under_cabinet_outside_wall_level_5
+    domain: light
+  mode: single
+- id: '1608387851620'
+  alias: Kitchen Lights Off - Night
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.kitchen_motion_sensor_sensor
+    to: 'off'
+    for: '20:00'
+  condition:
+  - condition: time
+    after: '23:00'
+    before: '6:00'
+  action:
+  - type: turn_off
+    device_id: 43cb46f5a856b4fc339ccaa383cfbd06
+    entity_id: light.kitchen_switch_over_sink_level_4
+    domain: light
+  - type: turn_off
+    device_id: 96a5e40f86466aa91376267e4a44005a
+    entity_id: light.kitchen_switch_over_table_level
+    domain: light
+  - type: turn_off
+    device_id: 6a3b33086545cd316eb3af4e8e64dc26
+    entity_id: light.kitchen_switch_overhead_lights_level_2
+    domain: light
+  - type: turn_off
+    device_id: 6e86e293129a40fc50d1310bee8da1c5
+    entity_id: light.kitchen_switch_under_cabinet_living_room_wall_level_3
+    domain: light
+  - type: turn_off
+    device_id: 5dd57bb3b1201b07b5226d8d3884a04c
+    entity_id: light.kitchen_switch_under_cabinet_outside_wall_level_5
+    domain: light
+  mode: single
+- id: '1608387968699'
+  alias: Kitchen Lights On - Night
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.kitchen_motion_sensor_sensor
+    to: 'on'
+  condition:
+  - condition: time
+    after: '23:00:00'
+    before: '6:00:00'
+  action:
+  - type: turn_on
+    device_id: 6e86e293129a40fc50d1310bee8da1c5
+    entity_id: light.kitchen_switch_under_cabinet_living_room_wall_level_3
+    domain: light
+    brightness_pct: 40
+  - type: turn_on
+    device_id: 5dd57bb3b1201b07b5226d8d3884a04c
+    entity_id: light.kitchen_switch_under_cabinet_outside_wall_level_5
+    domain: light
+    brightness_pct: 40
+  mode: single
+- id: '1608388195679'
+  alias: House Shut Dow
+  description: ''
+  trigger:
+  - platform: time
+    at: '23:00:00'
+  condition: []
+  action:
+  - service: script.good_night
+    data: {}
+  mode: single

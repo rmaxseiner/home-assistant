@@ -1,0 +1,68 @@
+good_night:
+  alias: Good night
+  sequence:
+  - type: turn_off
+    device_id: bf8cca813cd74bb5c19a04899846f9d0
+    entity_id: switch.computer_room_wall_outlet_switch_switch
+    domain: switch
+  - type: turn_off
+    device_id: dc47cd403017436de97bd397a8596f96
+    entity_id: light.downstairs_hallway_wall_switch_level
+    domain: light
+  - device_id: c829ba3b7ce60eb53a23782c41483689
+    domain: cover
+    entity_id: cover.garage_door
+    type: close
+  - type: turn_off
+    device_id: d9facecfe2403a5f1a9f5d09db98f6f6
+    entity_id: switch.garage_overhead_outlet_switch_left_bay_switch
+    domain: switch
+  - type: turn_off
+    device_id: 4a96d40296c1dad690702f1789371760
+    entity_id: switch.garage_overhead_outlet_switch_right_bay_switch_2
+    domain: switch
+  - type: turn_off
+    device_id: 4a09d39de9cb864e708557b7dab9cddd
+    entity_id: switch.12721_lighting_control_duplex_receptacle_switch_3
+    domain: switch
+  - type: turn_off
+    device_id: 6f45190bb59eece0edc3ebac68ca1532
+    entity_id: remote.harmony_hub
+    domain: remote
+  - type: turn_off
+    device_id: a91b2093831bd995c98a68003a0924f2
+    entity_id: switch.living_room_outlet_switch_garage_wall_switch
+    domain: switch
+  - type: turn_off
+    device_id: 7241d999a0ea5e336339943061bb5d62
+    entity_id: switch.living_room_outlet_switch_stairs_wall_switch_2
+    domain: switch
+  - type: turn_off
+    device_id: 1fae5e92997631fa8e43a21be8a4edf8
+    entity_id: switch.wemo_switch_1
+    domain: switch
+  - type: turn_off
+    device_id: 4dead65416aa0d689979ea4369f4c820
+    entity_id: switch.wemo_switch_2
+    domain: switch
+  - type: turn_off
+    device_id: 43cb46f5a856b4fc339ccaa383cfbd06
+    entity_id: light.kitchen_switch_over_sink_level_4
+    domain: light
+  - type: turn_off
+    device_id: 96a5e40f86466aa91376267e4a44005a
+    entity_id: light.kitchen_switch_over_table_level
+    domain: light
+  - type: turn_off
+    device_id: 6a3b33086545cd316eb3af4e8e64dc26
+    entity_id: light.kitchen_switch_overhead_lights_level_2
+    domain: light
+  - type: turn_off
+    device_id: 6e86e293129a40fc50d1310bee8da1c5
+    entity_id: light.kitchen_switch_under_cabinet_living_room_wall_level_3
+    domain: light
+  - type: turn_off
+    device_id: 5dd57bb3b1201b07b5226d8d3884a04c
+    entity_id: light.kitchen_switch_under_cabinet_outside_wall_level_5
+    domain: light
+  mode: single
