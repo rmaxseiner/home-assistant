@@ -301,7 +301,7 @@
   - platform: state
     entity_id: binary_sensor.kitchen_motion_sensor_sensor
     to: 'off'
-    for: '20:00'
+    for: 00:20:00
   condition:
   - condition: time
     after: '7:00:00'
@@ -335,24 +335,12 @@
   - platform: state
     entity_id: binary_sensor.kitchen_motion_sensor_sensor
     to: 'off'
-    for: '20:00'
+    for: 00:10:00
   condition:
   - condition: time
     after: '23:00'
     before: '6:00'
   action:
-  - type: turn_off
-    device_id: 43cb46f5a856b4fc339ccaa383cfbd06
-    entity_id: light.kitchen_switch_over_sink_level_4
-    domain: light
-  - type: turn_off
-    device_id: 96a5e40f86466aa91376267e4a44005a
-    entity_id: light.kitchen_switch_over_table_level
-    domain: light
-  - type: turn_off
-    device_id: 6a3b33086545cd316eb3af4e8e64dc26
-    entity_id: light.kitchen_switch_overhead_lights_level_2
-    domain: light
   - type: turn_off
     device_id: 6e86e293129a40fc50d1310bee8da1c5
     entity_id: light.kitchen_switch_under_cabinet_living_room_wall_level_3
