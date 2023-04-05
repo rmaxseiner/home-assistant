@@ -18,3 +18,5 @@ device_tracker:
     ssl: false
     
 sensor: !include sensor.yaml
+
+mqtt: !include mqtt.yaml
